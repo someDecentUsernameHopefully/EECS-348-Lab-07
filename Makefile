@@ -1,14 +1,12 @@
 CC = g++
 CFLAGs = -c -Wall
+FNAME = matrix-template-1
 
-all: main.o matrix.o
-	$(CC) -o driver matrix.o main.o
+all: $(FNAME).o
+	$(CC) -o driver $(FNAME).o -g
 
-matrix.o: matrix.cpp
-	$(CC) $(CFLAGs) matrix.cpp
-
-main.o: main.cpp
-	$(CC) $(CFLAGs) main.cpp
+$(FNAME).o: $(FNAME).cpp
+	$(CC) $(CFLAGs) $(FNAME).cpp -g
 
 clean:
 	rm -f *.o
