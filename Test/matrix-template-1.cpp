@@ -24,13 +24,15 @@ public:
 		ifstream InputFile(fName);
 
 		string fileData;
-		int i, j = 0;
+		int i = 0;
+		int j = 0;
 		while (getline(InputFile, fileData)) {
 			const char del = ' ';
 			string entry;
 			stringstream ss(fileData);
 
 			while (getline(ss, entry, del)) {
+				//cout << i << ", " << j << endl;
 				data[i][j] = stoi(entry);
 				j++;
 			}
@@ -38,6 +40,8 @@ public:
 			i++;
 			j = 0;
 		}
+
+		InputFile.close();
 	}
 
 	// 2. Display a matrix
@@ -131,4 +135,7 @@ int main() {
   mat1.display();
 
   return 0;
+
+  //*/
+
 }
